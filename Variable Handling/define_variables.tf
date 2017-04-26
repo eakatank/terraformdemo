@@ -16,13 +16,12 @@ variable "client_secret" {
 
 variable "subscription_id" {
   description = "The ID of the Azure subscription"
-  default     = ""
 }
 
 variable "rg_name" {
-  default = "Lets-see-ARM-templates-do-this"
+  default = "Demo-Resource-Group"
 }
 
 variable "rg_count" {
-  default = 20
+  default = 1
 }

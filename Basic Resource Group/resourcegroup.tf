@@ -8,6 +8,6 @@ provider "azurerm" {
 
 # Create a resource group
 resource "azurerm_resource_group" "rgmodule" {
-  name     = "MyTestResourceGroup"
+  name     = "Demo-Basic-Resource-Group"
   location = "EastUS"
 }
