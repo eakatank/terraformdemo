@@ -2,7 +2,7 @@
 
 # Let's first extract our access key, secret key, and region into a few variables. Create another file variables.tf with the following contents.
 
-variable "tenant_id" { 
+variable "tenant_id" {
   description = "The tenant id that has been assigned in Azure"
 }
 

@@ -1,5 +1,5 @@
 # Shared Variables
-variable "tenant_id" { 
+variable "tenant_id" {
   description = "The tenant id that has been assigned in Azure"
 }
 
@@ -17,12 +17,12 @@ variable "subscription_id" {
 }
 
 variable "location" {
-  default     = "eastus"
+  default = "eastus"
 }
 
 # networking-stuff
 variable "vnet_address_space" {
-  default  = "10.10.0.0/23"
+  default = "10.10.0.0/23"
 }
 
 variable "demosubnet" {

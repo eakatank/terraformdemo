@@ -1,14 +1,43 @@
 # Module specific Variables
-variable "module_location" { description = "Azure region" }
-variable "module_os_image" { description = "Azure Publisher,Offer,Sku,Version" }
-variable "module_admin_username" { description = "" }
-variable "module_admin_password" { description = "" }
-variable "module_service_name" {description = "name of service"}
-variable "module_pub_key" {description = ""}  
-variable "module_subnet_id" { description = "" }
-variable "module_storage_account_type" { description = "" }
-variable "module_instance_type" { description = "" }
-variable "module_instance_count" { description = "" }
+variable "module_location" {
+  description = "Azure region"
+}
+
+variable "module_os_image" {
+  description = "Azure Publisher,Offer,Sku,Version"
+}
+
+variable "module_admin_username" {
+  description = ""
+}
+
+variable "module_admin_password" {
+  description = ""
+}
+
+variable "module_service_name" {
+  description = "name of service"
+}
+
+variable "module_pub_key" {
+  description = ""
+}
+
+variable "module_subnet_id" {
+  description = ""
+}
+
+variable "module_storage_account_type" {
+  description = ""
+}
+
+variable "module_instance_type" {
+  description = ""
+}
+
+variable "module_instance_count" {
+  description = ""
+}
 
 resource "azurerm_resource_group" "module" {
   name     = "${var.module_service_name}"
@@ -40,13 +69,13 @@ resource "azurerm_public_ip" "module" {
 }
 
 resource "azurerm_virtual_machine" "module" {
-  name                             = "${azurerm_resource_group.module.name}-${count.index + 1}"
-  count                            = "${var.module_instance_count}"
-  location                         = "${var.module_location}"
-  resource_group_name              = "${azurerm_resource_group.module.name}"
-  network_interface_ids            = ["${element(azurerm_network_interface.module.*.id, count.index)}"]
-  vm_size                          = "${var.module_instance_type}"
-  delete_os_disk_on_termination    = true
+  name                          = "${azurerm_resource_group.module.name}-${count.index + 1}"
+  count                         = "${var.module_instance_count}"
+  location                      = "${var.module_location}"
+  resource_group_name           = "${azurerm_resource_group.module.name}"
+  network_interface_ids         = ["${element(azurerm_network_interface.module.*.id, count.index)}"]
+  vm_size                       = "${var.module_instance_type}"
+  delete_os_disk_on_termination = true
 
   storage_image_reference {
     publisher = "${element(split(",",var.module_os_image),0)}"
