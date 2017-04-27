@@ -11,5 +11,5 @@ module "service-vm" {
   # Overrides
   module_storage_account_type = "Standard_LRS"
   module_instance_type        = "Standard_F2"
-  module_instance_count       = 2
+  module_instance_count       = 1 
 }

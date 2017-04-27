@@ -1,3 +1,13 @@
+# Modules can be instantiated multiple times if needed
+
+# Modules can be sourced from:
+# Local file paths
+# GitHub
+# Bitbucket
+# Generic Git, Mercurial repositories
+# HTTP URLs
+# S3 buckets
+
 module "networking-stuff" {
   source                    = "./Modules/networking-stuff"
   module_location           = "${var.location}"

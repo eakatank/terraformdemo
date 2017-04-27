@@ -18,6 +18,10 @@ variable "subscription_id" {
   description = "The ID of the Azure subscription"
 }
 
+variable "location" {
+  default = "EastUS"
+}
+
 variable "rg_name" {
   default = "Demo-Resource-Group"
 }
